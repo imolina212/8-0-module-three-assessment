@@ -33,15 +33,26 @@ class Movies extends React.Component {
     }
 
     render() {
-        let dropDownOptions = this.state.movies.map((movie) => {
-            return <option value={movie.title}>{movie.title}</option>
+        let dropDownOptions = this.state.movies.map((movie, index) => {
+            return <option value={index}>{movie.title}</option>
         })
+
+        let movie = this.state.movies[this.state.currMovie]
+        console.log("movies", this.state.movies)
+        console.log("currMovie", this.state.currMovie)
+
         return (
             <div className="movies">
                 <h1>Select a Movie</h1>
                 <select onChange={this.handleDropdownChange}>
+                    <option></option>
                     {dropDownOptions}
                 </select>
+                {this.state.movies.length && this.state.currMovie && <div>
+                    <h3>Title: {movie.title}</h3>
+                    <h3>Release Date: {movie.release_date}</h3>
+                    <h3>Description: {movie.description}</h3>
+                </div>}
             </div>
 
         )
