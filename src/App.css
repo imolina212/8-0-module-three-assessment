@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.Navbar {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
 #app-logo {
   height: 50px;
   width: 50px;
